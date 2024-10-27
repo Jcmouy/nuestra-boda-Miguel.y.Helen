@@ -1,11 +1,11 @@
 // Instagram parallax
 $(".parallax-confirmar").parallax({
-  imageSrc: "assets/img/portada.jpg",
+  imageSrc: "asset/boda/javieryagustina/assets/img/cover-background.jpg",
 });
 
 // Portada parallax
 $(".parallax-portada").parallax({
-  imageSrc: "assets/img/portada.jpg",
+  imageSrc: "asset/boda/javieryagustina/assets/img/cover-background.jpg",
 });
 
 // ----------------------
