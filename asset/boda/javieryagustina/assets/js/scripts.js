@@ -89,6 +89,37 @@ var pauseAudio = () => {
 
 // ----------------------
 
+// video
+
+var videoElement = document.getElementById("videoElement");
+var audioPrueba = document.getElementById("audioPrueba");
+var wasAudioPlaying = false;
+
+videoElement.addEventListener("play", function() {
+    if (!audioPrueba.paused) {
+        wasAudioPlaying = true;
+        audioPrueba.pause();
+    } else {
+        wasAudioPlaying = false;
+    }
+});
+
+videoElement.addEventListener("ended", function() {
+    if (wasAudioPlaying) {
+        audioPrueba.play();
+    }
+});
+
+videoElement.addEventListener("pause", function() {
+    if (videoElement.currentTime < videoElement.duration) {
+        if (wasAudioPlaying) {
+            audioPrueba.play();
+        }
+    }
+});
+
+// ----------------------
+
 // Agendar en calendarios
 
 var calendarioPrueba = () => {
