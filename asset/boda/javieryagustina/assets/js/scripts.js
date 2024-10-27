@@ -99,14 +99,21 @@ videoElement.addEventListener("play", function() {
     if (!audioPrueba.paused) {
         wasAudioPlaying = true;
         audioPrueba.pause();
+        $("#btnPausa").addClass("hidden");
     } else {
         wasAudioPlaying = false;
+        $("#btnPlay").addClass("hidden");
     }
 });
 
 videoElement.addEventListener("ended", function() {
     if (wasAudioPlaying) {
         audioPrueba.play();
+        $("#btnPausa").removeClass("hidden");
+        $("#btnPausa").addClass("pulse");
+    } else {
+        $("#btnPlay").removeClass("hidden");
+        $("#btnPlay").addClass("vertical_shake");
     }
 });
 
@@ -114,6 +121,11 @@ videoElement.addEventListener("pause", function() {
     if (videoElement.currentTime < videoElement.duration) {
         if (wasAudioPlaying) {
             audioPrueba.play();
+            $("#btnPausa").removeClass("hidden");
+            $("#btnPausa").addClass("pulse");
+        } else {
+            $("#btnPlay").removeClass("hidden");
+            $("#btnPlay").addClass("vertical_shake");
         }
     }
 });
